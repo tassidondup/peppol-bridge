@@ -1,57 +1,115 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { validateAbn } from "@/lib/abr/validate";
+import { fetchAbrDetails } from "@/lib/abr/client";
+import { checkPeppolRegistration } from "@/lib/peppol/directory";
+import type { LookupResultState } from "@/types/lookup";
+import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/landing/Hero";
+import { TrustBar } from "@/components/landing/TrustBar";
+import { AbnLookupSection } from "@/components/landing/AbnLookupSection";
+import { MandateContext } from "@/components/landing/MandateContext";
+import { HowItWorks } from "@/components/landing/HowItWorks";
+import { Integrations } from "@/components/landing/Integrations";
+import { FaqSection } from "@/components/landing/FaqSection";
+import { WaitlistForm } from "@/components/landing/WaitlistForm";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Peppol Bridge — Send Peppol invoices from Xero in 90 seconds",
+  description:
+    "Australian businesses must accept Peppol e-invoices from July 2026. Peppol Bridge makes sending them from Xero take 90 seconds.",
+};
+
+interface Props {
+  searchParams: Promise<{ abn?: string }>;
+}
+
+async function resolveServerResult(
+  rawAbn: string,
+): Promise<LookupResultState | null> {
+  const validation = validateAbn(rawAbn);
+  if (!validation.valid) {
+    return { state: "invalid_abn", error: validation.error };
+  }
+
+  const { normalised: abn } = validation;
+
+  let abrData;
+  try {
+    abrData = await fetchAbrDetails(abn);
+  } catch {
+    return { state: "abr_error", abn };
+  }
+
+  if (abrData.AbnStatus === "Cancelled") {
+    return { state: "abn_cancelled", abn, entity_name: abrData.EntityName ?? "" };
+  }
+
+  let peppolResult;
+  try {
+    peppolResult = await checkPeppolRegistration(abn);
+  } catch {
+    return {
+      state: "peppol_not_confirmed",
+      abn,
+      entity_name: abrData.EntityName ?? "",
+      entity_type: abrData.EntityTypeName ?? null,
+      state_code: abrData.AddressState ?? null,
+    };
+  }
+
+  if (peppolResult.isRegistered) {
+    return {
+      state: "peppol_registered",
+      abn,
+      entity_name: abrData.EntityName ?? "",
+      entity_type: abrData.EntityTypeName ?? null,
+      gst_registered: Boolean(abrData.Gst && abrData.Gst.trim() !== ""),
+      state_code: abrData.AddressState ?? null,
+    };
+  }
+
+  return {
+    state: "peppol_not_confirmed",
+    abn,
+    entity_name: abrData.EntityName ?? "",
+    entity_type: abrData.EntityTypeName ?? null,
+    state_code: abrData.AddressState ?? null,
+  };
+}
+
+export default async function HomePage({ searchParams }: Props) {
+  const { abn: rawAbn } = await searchParams;
+  const serverResult = rawAbn ? await resolveServerResult(rawAbn) : null;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex min-h-screen flex-col bg-[#F8F9FB] dark:bg-[#0C1120]">
+      <Nav />
+      <main className="flex-1">
+        <Hero />
+        <TrustBar />
+        <AbnLookupSection initialAbn={rawAbn} initialResult={serverResult} />
+        <MandateContext />
+        <HowItWorks />
+        <Integrations />
+        <FaqSection />
+
+        {/* Bottom CTA */}
+        <section id="waitlist" className="mx-auto max-w-[1100px] px-6 py-24 text-center">
+          <h2 className="font-[family-name:var(--font-plus-jakarta)] mb-3.5 text-[clamp(30px,4vw,48px)] font-extrabold tracking-[-1px] text-[#0F1F3D] dark:text-white">
+            Be first when we launch.
+          </h2>
+          <p className="mb-10 text-[17px] text-[#6B7280]">
+            We&apos;re building Peppol Bridge for Australian businesses who want compliance
+            without the complexity. Waitlist members get early access pricing.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <div className="mx-auto max-w-[480px]">
+            <WaitlistForm />
+            <p className="mt-2.5 text-[13px] text-[#6B7280]">No spam. Unsubscribe anytime. 🇦🇺</p>
+          </div>
+        </section>
       </main>
+      <Footer />
     </div>
   );
 }
