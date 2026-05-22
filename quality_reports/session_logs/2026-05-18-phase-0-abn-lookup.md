@@ -29,13 +29,13 @@
 **D-037 · No Supabase, no caching, no rate limiting in Phase 0**
 - Decided mid-session after initial build included Supabase imports
 - All caching (`abn_lookup_cache`, `peppol_endpoint_cache`) and rate limiting (`rate_limit_buckets`) deferred to Phase 1
-- See `decision-log.md` D-037
+- See `decisions-log.md` D-037
 
 **D-038 · Peppol Directory API: directory.peppol.eu instead of peppol.helger.com**
 - `peppol.helger.com/api/ppidexistence/digitprod/` returned HTTP 400 during testing
 - Switched to official OpenPeppol-operated directory: `https://directory.peppol.eu/search/1.0/json?participant=...`
 - Registered = `total-result-count > 0` in the JSON response
-- See `decision-log.md` D-038
+- See `decisions-log.md` D-038
 
 ---
 

@@ -126,4 +126,4 @@ PEPPOL_DIRECTORY_BASE_URL=https://directory.peppol.eu  # optional override
 ---
 
 _Task version: 1.1 · Phase 0 · May 2026_
-_References: peppol-bridge-spec.md §4.4.1, §12 · DESIGN.md · decision-log.md D-037, D-038_
+_References: peppol-bridge-spec.md §4.4.1, §12 · DESIGN.md · decisions-log.md D-037, D-038_

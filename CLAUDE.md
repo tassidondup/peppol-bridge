@@ -25,7 +25,7 @@ Read before touching any domain. Do not rely on memory.
 
 | File                    | When to read it                                                     |
 | ----------------------- | ------------------------------------------------------------------- |
-| `decision-log.md`       | Before suggesting any architecture, schema, or product decision     |
+| `decisions-log.md`      | Before suggesting any architecture, schema, or product decision     |
 | `peppol-bridge-spec.md` | Before building any feature — check if it's already specced         |
 | `database-schema.md`    | Before every DB-related task — tables, columns, functions, triggers |
 
@@ -215,4 +215,20 @@ Tables are tagged by phase in `database-schema.md` — don't create Phase 2+ tab
 ---
 
 _Schema version: 2.2.0 · Stack: Next.js + Supabase + Storecove + Lemon Squeezy_
-_Full spec: peppol-bridge-spec.md · Full schema: database-schema.md · Decisions: decision-log.md_
+_Full spec: peppol-bridge-spec.md · Full schema: database-schema.md · Decisions: decisions-log.md_
+
+---
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for this repo. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Using default label vocabulary (needs-triage, needs-info, ready-for-agent, ready-for-human, wontfix). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context layout — one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
