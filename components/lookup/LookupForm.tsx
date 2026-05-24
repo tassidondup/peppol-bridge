@@ -17,12 +17,18 @@ interface Props {
   basePath?: string;
 }
 
-export function LookupForm({ initialAbn, initialResult, basePath = "/lookup" }: Props) {
+export function LookupForm({
+  initialAbn,
+  initialResult,
+  basePath = "/lookup",
+}: Props) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [raw, setRaw] = useState(initialAbn ?? "");
   const [inlineError, setInlineError] = useState<string | null>(null);
-  const [result, setResult] = useState<LookupResultState | null>(initialResult ?? null);
+  const [result, setResult] = useState<LookupResultState | null>(
+    initialResult ?? null,
+  );
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleReset() {
@@ -148,7 +154,7 @@ export function LookupForm({ initialAbn, initialResult, basePath = "/lookup" }: 
           />
           {(inlineError || showInlineValidation) && (
             <p id="abn-error" className="text-xs text-destructive px-1">
-              {inlineError ?? "Invalid ABN — checksum failed"}
+              {inlineError ?? "Invalid ABN"}
             </p>
           )}
         </div>
