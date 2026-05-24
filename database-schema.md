@@ -1,6 +1,6 @@
 # Database Schema Design
 
-### Peppol Bridge (AU e-Invoicing SaaS) — Supabase / PostgreSQL
+### Korlo (AU e-Invoicing SaaS) — Supabase / PostgreSQL
 
 **Last updated:** May 2026
 **Database:** PostgreSQL 15 via Supabase

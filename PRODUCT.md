@@ -10,7 +10,7 @@ Australian SMB owners and bookkeepers. Not technical. Arrive via invoice rejecti
 
 ## Product Purpose
 
-Peppol Bridge makes Australian Peppol e-invoicing accessible to SMBs who can't afford to ignore the July 2026 mandate but don't have an IT team. Phase 0 captures leads via an ABN lookup tool and waitlist. Phase 1 onward delivers the full invoicing product. Success looks like: a business owner signs up, connects Xero, and sends their first compliant invoice without reading a manual.
+Korlo makes Australian Peppol e-invoicing accessible to SMBs who can't afford to ignore the July 2026 mandate but don't have an IT team. Phase 0 captures leads via an ABN lookup tool and waitlist. Phase 1 onward delivers the full invoicing product. Success looks like: a business owner signs up, connects Xero, and sends their first compliant invoice without reading a manual.
 
 ## Brand Personality
 

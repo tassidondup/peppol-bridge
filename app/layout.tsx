@@ -25,7 +25,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Peppol Bridge — AU e-Invoicing",
+  title: "Korlo — AU e-Invoicing",
   description: "Check if any Australian business is on the Peppol e-invoicing network.",
 };
 

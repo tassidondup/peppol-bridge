@@ -15,14 +15,14 @@ export function Footer() {
             </svg>
           </div>
           <span className="font-[family-name:var(--font-plus-jakarta)] text-sm font-bold text-[#0F1F3D] dark:text-white">
-            Peppol <span className="text-[#00C2A8]">Bridge</span>
+            Korlo
           </span>
         </Link>
-        <p className="text-[13px] text-[#6B7280]">© 2026 Peppol Bridge. Made in Australia 🇦🇺</p>
+        <p className="text-[13px] text-[#6B7280]">© 2026 Korlo. Made in Australia 🇦🇺</p>
         <div className="flex gap-5">
           <a href="#" className="text-[13px] text-[#6B7280] hover:text-[#1A1A2E] dark:hover:text-white">Privacy</a>
           <a href="#" className="text-[13px] text-[#6B7280] hover:text-[#1A1A2E] dark:hover:text-white">Terms</a>
-          <a href="mailto:hello@peppolbridge.com.au" className="text-[13px] text-[#6B7280] hover:text-[#1A1A2E] dark:hover:text-white">Contact</a>
+          <a href="mailto:hello@korlo.com.au" className="text-[13px] text-[#6B7280] hover:text-[#1A1A2E] dark:hover:text-white">Contact</a>
         </div>
       </div>
     </footer>

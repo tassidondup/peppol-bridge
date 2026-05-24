@@ -1,4 +1,4 @@
-# PEPPOL BRIDGE — AU e-Invoicing for Australian SMBs
+# KORLO — AU e-Invoicing for Australian SMBs
 
 ### Product Specification · 2026
 
@@ -79,7 +79,7 @@
 
 ## 1. Product Overview
 
-**PEPPOL BRIDGE** is a thin, clean SaaS layer that lets Australian SMBs send and receive Peppol-compliant e-invoices — from their existing Xero or MYOB account — without ever touching XML, without becoming a Peppol expert, and without paying enterprise Access Point pricing.
+**KORLO** is a thin, clean SaaS layer that lets Australian SMBs send and receive Peppol-compliant e-invoices — from their existing Xero or MYOB account — without ever touching XML, without becoming a Peppol expert, and without paying enterprise Access Point pricing.
 
 ### The one-sentence pitch
 
@@ -94,7 +94,7 @@
 
 ### The USB-C analogy
 
-Peppol is the government mandating everyone use USB-C. Most businesses still have a drawer full of Micro-USB cables (PDF invoices via email). PEPPOL BRIDGE is the adapter in the box — plug your existing setup in, it works.
+Peppol is the government mandating everyone use USB-C. Most businesses still have a drawer full of Micro-USB cables (PDF invoices via email). KORLO is the adapter in the box — plug your existing setup in, it works.
 
 ---
 
@@ -530,7 +530,7 @@ Rather than trying to integrate everything at once, phase it by market impact:
 Any business on any accounting software can:
 
 1. Export their invoice as a PDF (every platform supports this)
-2. Upload to PEPPOL BRIDGE
+2. Upload to KORLO
 3. Claude extracts the structured data
 4. User corrects and confirms
 5. Sent via Peppol network
@@ -1444,7 +1444,7 @@ At AUD $29–$79/month average, even 1% penetration of the immediate-pain market
 | Exedee                | SMB                  | $15–$99/mo         | Limited Xero/MYOB integration                           |
 | Storecove Direct      | Developer/enterprise | Per-invoice        | No end-user product — just an API                       |
 | Xero Native Peppol    | Xero users           | Bundled (unclear)  | Buried in settings, poor discoverability, complex setup |
-| **PEPPOL BRIDGE**     | **AU SMBs**          | **$29–$149/mo**    | **Clean UX, guided setup, bookkeeper tier**             |
+| **KORLO**             | **AU SMBs**          | **$29–$149/mo**    | **Clean UX, guided setup, bookkeeper tier**             |
 
 ### Why incumbents don't own this space
 
@@ -1616,7 +1616,7 @@ _Mitigation:_ Invest in rejection message translation — every possible Peppol 
 
 |                                   |                                                                                     |
 | --------------------------------- | ----------------------------------------------------------------------------------- |
-| **Product name**                  | PEPPOL BRIDGE (working title — naming in progress)                                  |
+| **Product name**                  | Korlo                                                                               |
 | **Primary market**                | Australia (NZ secondary)                                                            |
 | **Regulatory driver**             | ATO Peppol mandate — July 2026 (live)                                               |
 | **Architecture**                  | Access Point reseller (Storecove) + multi-platform accounting layer                 |
@@ -1657,9 +1657,9 @@ _Mitigation:_ Invest in rejection message translation — every possible Peppol 
 
 ---
 
-### Side-by-Side: PEPPOL BRIDGE vs FRONTLINE
+### Side-by-Side: KORLO vs FRONTLINE
 
-| Dimension                | PEPPOL BRIDGE                                  | FRONTLINE (Mock Interview)   |
+| Dimension                | Korlo                                          | FRONTLINE (Mock Interview)   |
 | ------------------------ | ---------------------------------------------- | ---------------------------- |
 | **Urgency**              | 🟢 Real pain right now                         | 🟡 Perennial, not urgent     |
 | **Revenue per customer** | 🟢 AUD $29–$149/mo                             | 🟡 USD $19/mo                |
@@ -2055,7 +2055,7 @@ Action:
 
 ## 25. Research & Reference Materials
 
-All PINT A-NZ spec research, regulatory documentation, and API references are maintained in a **NotebookLM notebook** called "Peppol Bridge" (ID: `f0224748-53da-4239-a79c-1eefe84ec805`).
+All PINT A-NZ spec research, regulatory documentation, and API references are maintained in a **NotebookLM notebook** called "Korlo" (ID: `f0224748-53da-4239-a79c-1eefe84ec805`).
 
 Query it before writing any Peppol code. IBT numbers, schematron rule IDs, UBL element paths, and ATO certification requirements are exact — guessing them causes invoice rejections.
 

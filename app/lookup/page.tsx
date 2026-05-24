@@ -6,7 +6,7 @@ import { checkPeppolRegistration } from "@/lib/peppol/directory";
 import type { LookupResultState } from "@/types/lookup";
 
 export const metadata: Metadata = {
-  title: "Is your supplier on Peppol? — Peppol Bridge",
+  title: "Is your supplier on Peppol? — Korlo",
   description:
     "Check if any Australian business is registered on the Peppol e-invoicing network. Enter their ABN to find out instantly.",
 };

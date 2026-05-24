@@ -1,4 +1,4 @@
-# CLAUDE.md — Peppol Bridge
+# CLAUDE.md — Korlo
 
 > **Read this file completely before writing a single line of code.**
 
@@ -6,7 +6,7 @@
 
 ## What This Project Is
 
-An AU Peppol e-invoicing SaaS for Australian SMBs and bookkeepers. **Product name: Peppol Bridge.**
+An AU Peppol e-invoicing SaaS for Australian SMBs and bookkeepers. **Product name: Korlo.**
 
 **Regulatory context — never forget:**
 

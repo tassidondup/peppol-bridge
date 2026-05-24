@@ -14,4 +14,4 @@
 - **Inline style hydration warning:** `style={{ background: value }}` causes React hydration mismatches — browsers expand the CSS `background` shorthand into ~8 longhand properties on the client. Use Tailwind classes (e.g. `bg-[#EEF2FF]`) instead.
 - **Font stack (confirmed):** Plus Jakarta Sans (headings, weights 600/700/800) + DM Sans (body). Space Grotesk was tried and rejected. Inter was replaced by DM Sans.
 - **Tailwind v4 circular font variable:** In `@theme inline {}`, never write `--font-sans: var(--font-sans)` — circular self-reference, falls back to Times New Roman. Point to the Next.js-injected variable: `--font-sans: var(--font-dm-sans)`.
-- **TrustBar copy:** Never claim "Registered Peppol Access Point" — Peppol Bridge uses Storecove as its AP (D-003). Correct phrasing: "Certified Access Point via Storecove".
+- **TrustBar copy:** Never claim "Registered Peppol Access Point" — Korlo uses Storecove as its AP (D-003). Correct phrasing: "Certified Access Point via Storecove".

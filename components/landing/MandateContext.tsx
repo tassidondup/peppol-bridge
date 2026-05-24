@@ -36,7 +36,7 @@ export function MandateContext() {
             </p>
             <p className="text-base leading-[1.75] text-[#6B7280]">
               Most businesses don&apos;t know where to start. That&apos;s exactly
-              why we built Peppol Bridge.
+              why we built Korlo.
             </p>
           </div>
           <div className="flex flex-col gap-3.5">

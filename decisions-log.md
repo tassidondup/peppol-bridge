@@ -1,6 +1,6 @@
 # Decisions Log
 
-### Peppol Bridge — AU e-Invoicing SaaS
+### Korlo — AU e-Invoicing SaaS
 
 **Last updated:** May 2026
 **Purpose:** Quick-reference for every major decision made. Not the full spec — just the decision, the reason, and what was rejected. Read this before asking "what did we decide about X."

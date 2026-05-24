@@ -14,19 +14,19 @@ const FAQS = [
   },
   {
     q: "How is this different from just using Xero's Peppol feature?",
-    a: "Xero's Peppol support is buried in settings and poorly documented — most users don't know it's there or how to configure it correctly. Peppol Bridge is a dedicated product with guided onboarding, clear status indicators, multi-entity support for bookkeepers, and better error handling.",
+    a: "Xero's Peppol support is buried in settings and poorly documented — most users don't know it's there or how to configure it correctly. Korlo is a dedicated product with guided onboarding, clear status indicators, multi-entity support for bookkeepers, and better error handling.",
   },
   {
     q: "Do I need an IT team or technical knowledge?",
-    a: "No. Peppol Bridge is built for business owners and bookkeepers — not developers. Setup takes minutes, not days. You enter your ABN, connect your accounting tool, and we handle everything on the technical side.",
+    a: "No. Korlo is built for business owners and bookkeepers — not developers. Setup takes minutes, not days. You enter your ABN, connect your accounting tool, and we handle everything on the technical side.",
   },
   {
     q: "I'm a bookkeeper managing multiple clients. How does that work?",
-    a: "Peppol Bridge includes a multi-entity dashboard designed specifically for bookkeepers and BAS agents. You can manage Peppol registration, invoice status, and compliance for all your clients from a single login.",
+    a: "Korlo includes a multi-entity dashboard designed specifically for bookkeepers and BAS agents. You can manage Peppol registration, invoice status, and compliance for all your clients from a single login.",
   },
   {
-    q: "When will Peppol Bridge launch, and how much will it cost?",
-    a: "We're currently in pre-launch. Waitlist members will be first to access Peppol Bridge and will receive early access pricing. Join the waitlist and we'll keep you posted on timing and pricing as we approach launch.",
+    q: "When will Korlo launch, and how much will it cost?",
+    a: "We're currently in pre-launch. Waitlist members will be first to access Korlo and will receive early access pricing. Join the waitlist and we'll keep you posted on timing and pricing as we approach launch.",
   },
 ];
 

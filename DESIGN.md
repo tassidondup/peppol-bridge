@@ -1,4 +1,4 @@
-# Peppol Bridge — Design System
+# Korlo — Design System
 
 ## Product type
 

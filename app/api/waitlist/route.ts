@@ -55,7 +55,7 @@ export async function POST(
   try {
     // Notify owner
     await resend.emails.send({
-      from: "Peppol Bridge <onboarding@resend.dev>",
+      from: "Korlo <onboarding@resend.dev>",
       to: toEmail,
       subject: `New waitlist signup: ${email}`,
       text: `New waitlist signup\n\nEmail: ${email}\nTime: ${new Date().toISOString()}`,
@@ -63,10 +63,10 @@ export async function POST(
 
     // Confirm to submitter
     await resend.emails.send({
-      from: "Peppol Bridge <onboarding@resend.dev>",
+      from: "Korlo <onboarding@resend.dev>",
       to: email,
-      subject: "You're on the Peppol Bridge waitlist",
-      text: `Hi,\n\nYou're on the list. We'll email you when Peppol Bridge launches.\n\nIn the meantime, you can check if any Australian business is on the Peppol network:\nhttps://peppolbridge.com.au/lookup\n\n— Peppol Bridge`,
+      subject: "You're on the Korlo waitlist",
+      text: `Hi,\n\nYou're on the list. We'll email you when Korlo launches.\n\nIn the meantime, you can check if any Australian business is on the Peppol network:\nhttps://korlo.com.au/lookup\n\n— Korlo`,
     });
   } catch (err) {
     console.error("[waitlist] Resend error:", err instanceof Error ? err.message : String(err));

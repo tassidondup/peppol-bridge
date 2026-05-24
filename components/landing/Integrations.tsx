@@ -16,7 +16,7 @@ export function Integrations() {
           Works with the tools you already use.
         </h2>
         <p className="mb-11 text-base text-[#6B7280]">
-          No rekeying data. No switching apps. Peppol Bridge plugs into your
+          No rekeying data. No switching apps. Korlo plugs into your
           existing workflow.
         </p>
         <div className="grid grid-cols-2 justify-center gap-5 sm:grid-cols-4">

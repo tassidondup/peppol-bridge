@@ -15,9 +15,9 @@ import { FaqSection } from "@/components/landing/FaqSection";
 import { WaitlistForm } from "@/components/landing/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "Peppol Bridge — Send Peppol invoices from Xero in 90 seconds",
+  title: "Korlo — Send Peppol invoices from Xero in 90 seconds",
   description:
-    "Australian businesses must accept Peppol e-invoices from July 2026. Peppol Bridge makes sending them from Xero take 90 seconds.",
+    "Australian businesses must accept Peppol e-invoices from July 2026. Korlo makes sending them from Xero take 90 seconds.",
 };
 
 interface Props {
@@ -100,7 +100,7 @@ export default async function HomePage({ searchParams }: Props) {
             Be first when we launch.
           </h2>
           <p className="mb-10 text-[17px] text-[#6B7280]">
-            We&apos;re building Peppol Bridge for Australian businesses who want compliance
+            We&apos;re building Korlo for Australian businesses who want compliance
             without the complexity. Waitlist members get early access pricing.
           </p>
           <div className="mx-auto max-w-[480px]">

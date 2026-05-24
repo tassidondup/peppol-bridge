@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { WaitlistForm } from "@/components/landing/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "Join the waitlist — Peppol Bridge",
-  description: "Get early access to Peppol Bridge. Send Peppol invoices from Xero in 90 seconds.",
+  title: "Join the waitlist — Korlo",
+  description: "Get early access to Korlo. Send Peppol invoices from Xero in 90 seconds.",
 };
 
 interface Props {
@@ -24,8 +24,8 @@ const HEADLINES: Record<string, { heading: string; sub: string }> = {
 };
 
 const DEFAULT = {
-  heading: "Get early access to Peppol Bridge",
-  sub: "We're building Peppol Bridge for Australian businesses who want compliance without the complexity. Waitlist members get early access pricing.",
+  heading: "Get early access to Korlo",
+  sub: "We're building Korlo for Australian businesses who want compliance without the complexity. Waitlist members get early access pricing.",
 };
 
 export default async function WaitlistPage({ searchParams }: Props) {
