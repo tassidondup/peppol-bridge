@@ -14,16 +14,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        has: [{ type: "host", value: "www.korlo.com.au" }],
-        destination: "https://korlo.com.au",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
