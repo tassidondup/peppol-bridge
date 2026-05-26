@@ -48,22 +48,24 @@ export default function OgImage() {
         {/* Headline */}
         <div
           style={{
+            display: "flex",
+            flexWrap: "wrap",
             fontSize: 64,
             fontWeight: 800,
-            color: "white",
             lineHeight: 1.1,
             letterSpacing: "-2px",
             marginBottom: 28,
             maxWidth: 900,
           }}
         >
-          Invoice government.{" "}
+          <span style={{ color: "white" }}>Invoice government.&nbsp;</span>
           <span style={{ color: "#10B981" }}>Get paid in 5 days.</span>
         </div>
 
         {/* Subtext */}
         <div
           style={{
+            display: "flex",
             fontSize: 26,
             color: "rgba(255,255,255,0.65)",
             lineHeight: 1.5,
