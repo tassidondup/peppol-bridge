@@ -4,8 +4,11 @@ import { Footer } from "@/components/layout/Footer";
 import { WaitlistForm } from "@/components/landing/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "Join the waitlist — Korlo",
-  description: "Get early access to Korlo. Send Peppol invoices from Xero in 90 seconds.",
+  title: "Join the Korlo Waitlist — Early Access to AU Peppol e-Invoicing",
+  description:
+    "Get early access to Korlo and be first to send Peppol e-invoices to Australian government agencies from Xero, MYOB, or QuickBooks. Waitlist members get early access pricing.",
+  alternates: { canonical: "https://korlo.com.au/waitlist" },
+  robots: { index: false },
 };
 
 interface Props {
@@ -33,16 +36,16 @@ export default async function WaitlistPage({ searchParams }: Props) {
   const copy = (reason ? HEADLINES[reason] : undefined) ?? DEFAULT;
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#F8F9FB] dark:bg-[#0C1120]">
+    <div className="flex min-h-screen flex-col bg-[#F9FAFB] dark:bg-[#071A0E]">
       <Nav />
       <main className="flex flex-1 items-center justify-center px-6 py-16">
         <div className="w-full max-w-[440px]">
           <div className="mb-8">
-            <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-[#E6FAF7] px-3 py-1.5 text-[13px] font-medium text-[#007A6B] dark:bg-[#00C2A8]/10 dark:text-[#00C2A8]">
-              <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-[#00C2A8]" />
+            <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-[#ECFDF5] px-3 py-1.5 text-[13px] font-medium text-[#065F46] dark:bg-[#10B981]/10 dark:text-[#10B981]">
+              <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-[#10B981]" />
               Accepting waitlist signups
             </div>
-            <h1 className="font-[family-name:var(--font-plus-jakarta)] mb-3 text-[clamp(26px,4vw,36px)] font-bold tracking-[-0.6px] text-[#0F1F3D] dark:text-white">
+            <h1 className="font-[family-name:var(--font-plus-jakarta)] mb-3 text-[clamp(26px,4vw,36px)] font-bold tracking-[-0.6px] text-[#052E16] dark:text-white">
               {copy.heading}
             </h1>
             <p className="text-[15px] leading-[1.65] text-[#6B7280]">

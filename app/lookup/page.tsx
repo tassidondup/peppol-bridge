@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
 import { LookupForm } from "@/components/lookup/LookupForm";
+import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
 import { validateAbn } from "@/lib/abr/validate";
 import { fetchAbrDetails } from "@/lib/abr/client";
 import { checkPeppolRegistration } from "@/lib/peppol/directory";
 import type { LookupResultState } from "@/types/lookup";
 
 export const metadata: Metadata = {
-  title: "Is your supplier on Peppol? — Korlo",
+  title: "ABN Peppol Lookup — Check if a Business is on the Peppol Network",
   description:
-    "Check if any Australian business is registered on the Peppol e-invoicing network. Enter their ABN to find out instantly.",
+    "Check if any Australian business is registered on the Peppol e-invoicing network. Enter their ABN to find out instantly — free, no account required.",
+  alternates: { canonical: "https://korlo.com.au/lookup" },
+  openGraph: {
+    title: "Free ABN Peppol Lookup — Is Your Supplier on the Peppol Network?",
+    description:
+      "Enter any ABN to instantly check Peppol registration status. Powered by the Peppol Directory and Australian Business Register.",
+    url: "https://korlo.com.au/lookup",
+  },
 };
 
 interface Props {
@@ -44,7 +53,6 @@ async function resolveServerResult(
   try {
     peppolResult = await checkPeppolRegistration(abn);
   } catch {
-    // Peppol check failed — degrade gracefully to not_confirmed
     return {
       state: "peppol_not_confirmed",
       abn,
@@ -76,50 +84,50 @@ async function resolveServerResult(
 
 export default async function LookupPage({ searchParams }: Props) {
   const { abn: rawAbn } = await searchParams;
-
-  // Server-side lookup when ?abn= is present — result renders without JS
   const serverResult = rawAbn ? await resolveServerResult(rawAbn) : null;
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
-      <div className="w-full max-w-xl space-y-10">
-        {/* Header */}
-        <div className="space-y-3 text-center">
-          <h1 className="text-3xl font-semibold tracking-tight">
-            Is your supplier on Peppol?
-          </h1>
-          <p className="text-muted-foreground">
-            Enter their ABN to check if they can receive e-invoices via the
-            Australian Peppol network.
+    <div className="flex min-h-screen flex-col bg-[#F9FAFB] dark:bg-[#071A0E]">
+      <Nav />
+      <main className="flex flex-1 flex-col items-center justify-center px-4 py-16">
+        <div className="w-full max-w-xl space-y-10">
+          <div className="space-y-3 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[1.2px] text-[#10B981]">
+              Free lookup tool
+            </p>
+            <h1 className="font-[family-name:var(--font-plus-jakarta)] text-[clamp(26px,4vw,38px)] font-bold tracking-[-0.8px] text-[#052E16] dark:text-white">
+              Is your supplier on Peppol?
+            </h1>
+            <p className="text-[#6B7280]">
+              Enter their ABN to check if they can receive e-invoices via the
+              Australian Peppol network.
+            </p>
+          </div>
+          <LookupForm initialAbn={rawAbn} initialResult={serverResult} />
+          <p className="text-center text-xs text-[#6B7280]">
+            ABN data sourced from the{" "}
+            <a
+              href="https://abr.business.gov.au"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-[#052E16] dark:hover:text-white"
+            >
+              Australian Business Register
+            </a>
+            . Peppol registration data from the{" "}
+            <a
+              href="https://directory.peppol.eu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-[#052E16] dark:hover:text-white"
+            >
+              Peppol Directory
+            </a>
+            .
           </p>
         </div>
-
-        {/* Interactive form — takes over from the server result once JS loads */}
-        <LookupForm initialAbn={rawAbn} initialResult={serverResult} />
-
-        {/* Footer */}
-        <p className="text-center text-xs text-muted-foreground">
-          ABN data sourced from the{" "}
-          <a
-            href="https://abr.business.gov.au"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2"
-          >
-            Australian Business Register
-          </a>
-          . Peppol registration data from the{" "}
-          <a
-            href="https://directory.peppol.eu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2"
-          >
-            Peppol Directory
-          </a>
-          .
-        </p>
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

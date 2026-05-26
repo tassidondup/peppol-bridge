@@ -10,6 +10,7 @@ export type WaitlistResponse = { ok: true } | { ok: false; error: string };
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
+  agency_abn: z.string().optional(),
 });
 
 // ─── Handler ──────────────────────────────────────────────────────────────────
@@ -37,7 +38,7 @@ export async function POST(
     );
   }
 
-  const { email } = parsed.data;
+  const { email, agency_abn } = parsed.data;
 
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.WAITLIST_TO_EMAIL;
@@ -54,11 +55,21 @@ export async function POST(
 
   try {
     // Notify owner
+    const ownerText = [
+      "New waitlist signup",
+      "",
+      `Email: ${email}`,
+      agency_abn ? `Agency ABN: ${agency_abn}` : null,
+      `Time: ${new Date().toISOString()}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
     await resend.emails.send({
       from: "Korlo <onboarding@resend.dev>",
       to: toEmail,
       subject: `New waitlist signup: ${email}`,
-      text: `New waitlist signup\n\nEmail: ${email}\nTime: ${new Date().toISOString()}`,
+      text: ownerText,
     });
 
     // Confirm to submitter

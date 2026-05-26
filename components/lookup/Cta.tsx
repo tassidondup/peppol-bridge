@@ -5,9 +5,11 @@ import type { LookupResultState } from "@/types/lookup";
 interface Props {
   result: LookupResultState;
   onReset?: () => void;
+  /** Where "Notify me" scrolls or navigates to. "#waitlist" scrolls in-page; "/waitlist" navigates. */
+  notifyHref?: string;
 }
 
-export function Cta({ result, onReset }: Props) {
+export function Cta({ result, onReset, notifyHref = "#waitlist" }: Props) {
   if (result.state === "invalid_abn" || result.state === "abr_error") {
     return null;
   }
@@ -35,14 +37,32 @@ export function Cta({ result, onReset }: Props) {
     );
   }
 
-  // peppol_not_confirmed
+  // peppol_not_confirmed — all other states returned early above
+  const { abn, entity_name: entityName } = result as Extract<
+    LookupResultState,
+    { state: "peppol_not_confirmed" }
+  >;
+
+  const isInPage = notifyHref.startsWith("#");
+
+  function handleNotify() {
+    if (isInPage) {
+      document.getElementById(notifyHref.slice(1))?.scrollIntoView({ behavior: "smooth" });
+      window.dispatchEvent(new CustomEvent("korlo:notify", { detail: { abn } }));
+    } else {
+      window.location.href = notifyHref;
+    }
+  }
+
   return (
     <div className="flex flex-col items-center gap-3 text-center">
-      <Button asChild size="lg" className="w-full sm:w-auto">
-        <Link href="/waitlist">Help them get on Peppol</Link>
+      <Button size="lg" className="w-full sm:w-auto" onClick={handleNotify}>
+        {entityName
+          ? `Notify me when ${entityName} registers`
+          : "Notify me when they register"}
       </Button>
       <p className="text-xs text-muted-foreground">
-        Join the waitlist — we&apos;ll guide you through Peppol registration
+        Join the waitlist — we&apos;ll alert you when they go live on Peppol
       </p>
     </div>
   );

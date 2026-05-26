@@ -55,13 +55,13 @@
 }
 
 :root {
-  --background: #F8F9FB;
-  --navy: #0F1F3D;
-  --teal: #00C2A8;
-  --teal-mid: #00A894;
-  --teal-light: #E6FAF7;
-  --brand-bg: #F8F9FB;
-  --brand-text: #1A1A2E;
+  --background: #F9FAFB;
+  --navy: #052E16;
+  --teal: #10B981;
+  --teal-mid: #059669;
+  --teal-light: #ECFDF5;
+  --brand-bg: #F9FAFB;
+  --brand-text: #052E16;
   --brand-muted: #6B7280;
   --brand-border: #E5E7EB;
   --foreground: oklch(0.145 0 0);
@@ -98,7 +98,15 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #071A0E;
+  --navy: #071A0E;
+  --teal: #10B981;
+  --teal-mid: #059669;
+  --teal-light: #132A1C;
+  --brand-bg: #071A0E;
+  --brand-text: #F0FDF4;
+  --brand-muted: rgba(240,253,244,0.5);
+  --brand-border: rgba(255,255,255,0.08);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -129,6 +137,44 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmerSweep {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.reveal-visible {
+  animation: fadeSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .reveal-hidden,
+  .reveal-visible {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 
 @layer base {

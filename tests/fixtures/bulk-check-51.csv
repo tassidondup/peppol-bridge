@@ -1,0 +1,52 @@
+abn,company_name,notes
+67087757551,Scrape Co 1,valid
+90116359963,Scrape Co 2,valid
+74147352079,Scrape Co 3,valid
+99635744991,Scrape Co 4,valid
+61685680095,Scrape Co 5,valid
+26694517416,Scrape Co 6,valid
+41068252111,Scrape Co 7,valid
+15119804762,Scrape Co 8,valid
+12527291870,Scrape Co 9,valid
+12345678901,Invalid Co 1 — checksum fail,INVALID
+75668055794,Scrape Co 10,valid
+44360460655,Scrape Co 11,valid
+49682088053,Scrape Co 12,valid
+98008438828,Scrape Co 13,valid
+63790360157,Scrape Co 14,valid
+41681293407,Scrape Co 15,valid
+31604937902,Scrape Co 16,valid
+49614834552,Scrape Co 17,valid
+88689953857,Scrape Co 18,valid
+99999999999,Invalid Co 2 — all nines,INVALID
+41691661855,Scrape Co 19,valid
+54662714490,Scrape Co 20,valid
+57167065394,Scrape Co 21,valid
+41074044410,Scrape Co 22,valid
+83154326182,Scrape Co 23,valid
+11111111111,Invalid Co 3 — all ones,INVALID
+63051822649,Scrape Co 24,valid
+47632483697,Scrape Co 25,valid
+44094751792,Scrape Co 26,valid
+46632518453,Scrape Co 27,valid
+35129976227,Scrape Co 28,valid
+40620068715,Scrape Co 29,valid
+38002097814,Scrape Co 30,valid
+82637044010,Scrape Co 31,valid
+12345678900,Invalid Co 4 — off by one,INVALID
+60058418045,Scrape Co 32,valid
+99106258477,Scrape Co 33,valid
+98877947887,Scrape Co 34,valid
+41641982050,Scrape Co 35,valid
+64677971792,Scrape Co 36,valid
+81653839948,Scrape Co 37,valid
+96637325207,Scrape Co 38,valid
+33051775556,Telstra Corporation,valid
+16009661901,Qantas Airways,valid
+51824753557,Invalid Co 5 — Qantas example mutated,INVALID
+48123123124,Commonwealth Bank of Australia,valid
+49004028077,BHP Group,valid
+88000014675,Woolworths Group,valid
+11004089936,Coles Group,valid
+00000000000,Invalid Co 6 — all zeros,INVALID
+33007457141,Westpac Banking Corporation,valid

@@ -7,12 +7,12 @@ const INTEGRATIONS = [
 
 export function Integrations() {
   return (
-    <section className="border-b border-t border-[#E5E7EB] bg-white px-6 py-16 dark:border-white/10 dark:bg-[#0C1120]">
+    <section className="border-b border-t border-[#E5E7EB] bg-white px-6 py-16 dark:border-white/8 dark:bg-[#071A0E]">
       <div className="mx-auto max-w-[1100px] text-center">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[1.2px] text-[#00C2A8]">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[1.2px] text-[#10B981]">
           Integrations
         </p>
-        <h2 className="font-[family-name:var(--font-plus-jakarta)] mb-3 text-[clamp(24px,3vw,34px)] font-bold tracking-[-0.6px] text-[#0F1F3D]">
+        <h2 className="font-[family-name:var(--font-plus-jakarta)] mb-3 text-[clamp(24px,3vw,34px)] font-bold tracking-[-0.6px] text-[#052E16] dark:text-white">
           Works with the tools you already use.
         </h2>
         <p className="mb-11 text-base text-[#6B7280]">
@@ -23,7 +23,7 @@ export function Integrations() {
           {INTEGRATIONS.map((int) => (
             <div
               key={int.name}
-              className="flex items-center justify-center gap-3 rounded-[14px] border border-[#E5E7EB] bg-[#F8F9FB] px-6 py-[22px] text-[15px] font-semibold text-[#0F1F3D] dark:border-white/10 dark:bg-[#111827] dark:text-white"
+              className="flex items-center justify-center gap-3 rounded-[14px] border border-[#E5E7EB] bg-[#F9FAFB] px-6 py-[22px] text-[15px] font-semibold text-[#052E16] dark:border-white/8 dark:bg-[#0F2318] dark:text-white"
             >
               <div
                 className="flex h-8 w-8 items-center justify-center rounded-lg"

@@ -23,7 +23,7 @@ export function validateAbn(raw: string): AbnValidationResult {
   const sum = digits.reduce((acc, digit, i) => acc + digit * ABN_WEIGHTS[i], 0);
 
   if (sum % 89 !== 0) {
-    return { valid: false, error: "Invalid ABN — checksum failed" };
+    return { valid: false, error: "That ABN doesn't look right — please check and try again" };
   }
 
   return { valid: true, normalised };

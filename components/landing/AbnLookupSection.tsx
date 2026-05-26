@@ -8,9 +8,9 @@ interface Props {
 
 export function AbnLookupSection({ initialAbn, initialResult }: Props) {
   return (
-    <section className="bg-[#0F1F3D] px-6 py-20">
+    <section className="bg-[#052E16] px-6 py-20 dark:bg-[#0F2318]">
       <div className="mx-auto max-w-[780px] text-center">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[1.2px] text-[#00C2A8]">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[1.2px] text-[#10B981]">
           Free lookup tool
         </p>
         <h2 className="font-[family-name:var(--font-plus-jakarta)] mb-3 text-[clamp(26px,4vw,38px)] font-bold tracking-[-0.8px] text-white">

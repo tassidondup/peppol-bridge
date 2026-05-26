@@ -34,23 +34,23 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="border-t border-[#E5E7EB] bg-[#F8F9FB] px-6 py-[88px] dark:border-white/10 dark:bg-[#0C1120]">
+    <section id="faq" className="border-t border-[#E5E7EB] bg-[#F9FAFB] px-6 py-[88px] dark:border-white/8 dark:bg-[#071A0E]">
       <div className="mx-auto max-w-[780px]">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[1.2px] text-[#00C2A8]">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[1.2px] text-[#10B981]">
           Common questions
         </p>
-        <h2 className="font-[family-name:var(--font-plus-jakarta)] mb-11 text-[clamp(26px,4vw,36px)] font-bold tracking-[-0.6px] text-[#0F1F3D] dark:text-white">
+        <h2 className="font-[family-name:var(--font-plus-jakarta)] mb-11 text-[clamp(26px,4vw,36px)] font-bold tracking-[-0.6px] text-[#052E16] dark:text-white">
           Everything you need to know.
         </h2>
         <div className="flex flex-col gap-3">
           {FAQS.map((faq, i) => (
             <div
               key={i}
-              className="overflow-hidden rounded-xl border border-[#E5E7EB] bg-white hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] dark:border-white/10 dark:bg-[#111827]"
+              className="overflow-hidden rounded-xl border border-[#E5E7EB] bg-white hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] dark:border-white/8 dark:bg-[#0F2318]"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-[15px] font-semibold text-[#0F1F3D] dark:text-white"
+                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-[15px] font-semibold text-[#052E16] dark:text-white"
               >
                 {faq.q}
                 <ChevronDown

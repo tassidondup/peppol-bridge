@@ -35,7 +35,7 @@ export function LookupForm({
     setResult(null);
     setRaw("");
     setInlineError(null);
-    router.replace(basePath);
+    router.replace(basePath, { scroll: false });
     setTimeout(() => inputRef.current?.focus(), 0);
   }
 
@@ -107,7 +107,7 @@ export function LookupForm({
     const { normalised } = validation;
 
     // Update URL so the result is shareable
-    router.replace(`${basePath}?abn=${normalised}`);
+    router.replace(`${basePath}?abn=${normalised}`, { scroll: false });
 
     startTransition(async () => {
       await runLookup(normalised);
@@ -148,8 +148,8 @@ export function LookupForm({
             aria-label="Australian Business Number"
             aria-describedby={inlineError ? "abn-error" : undefined}
             aria-invalid={!!inlineError || showInlineValidation}
-            className="font-mono text-base h-11"
-            autoFocus
+            className="font-mono text-base h-11 text-white"
+            autoFocus={!!initialAbn}
             autoComplete="off"
           />
           {(inlineError || showInlineValidation) && (
@@ -171,7 +171,11 @@ export function LookupForm({
       {result && (
         <div className="space-y-4">
           <LookupResult result={result} />
-          <Cta result={result} onReset={handleReset} />
+          <Cta
+            result={result}
+            onReset={handleReset}
+            notifyHref={basePath === "/" ? "#waitlist" : "/#waitlist"}
+          />
         </div>
       )}
     </div>
