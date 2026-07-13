@@ -389,6 +389,15 @@ Each entry has three parts:
 | Monorepo tooling                   | D-036       |
 | Phase 0: no Supabase/cache/rate limiting | D-037  |
 | Peppol Directory API choice              | D-038  |
+| Product name + domain + infra approach   | D-039  |
+
+---
+
+**D-039 · Product name: Korlo · Domain: korlo.com.au · Infra: Vercel (no www redirect in code)**
+
+- **Decision:** Product name is **Korlo**. Primary domain is **korlo.com.au**, deployed on Vercel. www→apex redirect is handled by Vercel domain config — not in `next.config.ts`.
+- **Why:** Name was chosen from shortlist. Domain is registered and live. Keeping redirect in Next.js code alongside Vercel's domain-level redirect caused an infinite redirect loop ("too many redirects") on launch.
+- **Rejected:** Adding www redirect in `next.config.ts` — conflicts with Vercel CDN redirect, causes loop.
 
 ---
 
@@ -396,8 +405,8 @@ Each entry has three parts:
 
 | #     | Question                         | Status                                                              |
 | ----- | -------------------------------- | ------------------------------------------------------------------- |
-| O-001 | Final product name               | Shortlist unchecked: Koru, Celo, Vori, Levo, Nevo, Zivio, Tali      |
-| O-002 | Domain registration              | Blocked on O-001                                                    |
+| O-001 | Final product name               | **Resolved — Korlo** (see D-039)                                    |
+| O-002 | Domain registration              | **Resolved — korlo.com.au**, live on Vercel (see D-039)             |
 | O-003 | NZ marketing timing              | Data-driven — wait for 10+ organic NZ customers                     |
 | O-004 | Volume tier introduction         | Data-driven — watch `has_external_bookkeeper` + `invoices_sent_mtd` |
 | O-005 | Second accounting platform       | MYOB in Phase 3, QBO in Phase 4                                     |
@@ -406,6 +415,6 @@ Each entry has three parts:
 
 ---
 
-_Decisions log v1.2 · May 2026_
+_Decisions log v1.3 · May 2026_
 _Full product specification: peppol-bridge-spec.md_
 _Full database schema: database-schema.md v2.2.0_
